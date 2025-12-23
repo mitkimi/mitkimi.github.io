@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "export": "next build",
+    "preview": "npx serve out"
   },
   "dependencies": {
+    "@apron-design/react": "^26.0.2",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3"

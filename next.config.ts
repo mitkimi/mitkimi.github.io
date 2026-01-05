@@ -9,11 +9,7 @@ import type { NextConfig } from "next";
  * - 可以通过环境变量 BASE_PATH 来控制
  */
 const nextConfig: NextConfig = {
-  reactCompiler: true,
   output: 'export',
-  sassOptions: {
-    includePaths: ['./node_modules'],
-  },
   // 使用环境变量或默认为空字符串（适合自定义域名）
   // 如果部署在子路径下，设置环境变量 BASE_PATH='/your-repo-name'
   basePath: process.env.BASE_PATH || '',

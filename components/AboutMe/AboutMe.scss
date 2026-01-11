@@ -3,6 +3,16 @@
   min-height: 100vh;
   padding: 8rem 2rem;
   background-color: #000;
+  
+  /* 确保在 pin 时正确显示 */
+  &.pinned {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    z-index: 1000 !important;
+  }
 }
 
 .about-me-content {
@@ -146,11 +156,17 @@
   color: var(--text-color);
   text-decoration: none;
   transition: all 0.3s ease;
+  outline: none;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
   }
 }
 
@@ -297,14 +313,22 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+    
   &:hover {
     border-color: rgba(255, 255, 255, 0.6); /* hover 边框 60% 白 */
     color: #fff; /* hover 字 100% 白 */
   }
+    
+}
   
+.about-me-card.adjusted-padding {
+  padding-top: var(--adjusted-padding-top, 30px);
+  padding-bottom: var(--adjusted-padding-bottom, 30px);
 }
 
+.about-me-swiper-card {
+  padding: 30px;
+}
 .about-me-profile-section {
   display: flex;
   gap: 20px;
@@ -316,7 +340,7 @@
     max-width: 100%; /* 防止溢出 */
     
     .about-me-swiper {
-      border-radius: 30px;
+      border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.2);
       background-color: rgba(255, 255, 255, 0.02);
       width: 100%;
@@ -373,10 +397,17 @@
     align-items: center;
     justify-content: center;
     border: none; /* 确保没有边框 */
+    outline: none;
     
     &:hover {
       color: #fff;
       transform: translateY(-2px);
+    }
+    
+    &:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.5);
+      outline-offset: 2px;
+      border-radius: 4px;
     }
   }
   
@@ -455,7 +486,7 @@
 .about-me-grid-span-one {
   grid-column: span 1;
   min-width: 0;
-  height: fit-content;
+  height: 100%;
 }
 
 .about-me-grid-span-three {
@@ -471,4 +502,59 @@
   width: 100%;
   align-self: stretch;
   min-width: 0; /* 防止内容溢出 */
+}
+
+.scroll-container-wrapper {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  
+  /* 确保滚动容器和swiper容器高度一致 */
+  .scroll-container {
+    height: 100%;
+    overflow-y: scroll; /* 使用 scroll 确保滚动行为正确 */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-right: 0;
+    
+    /* 隐藏滚动条 */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera*/
+    }
+  }
+}
+
+
+
+.scroll-card {
+  /* 滚动容器中的卡片样式 */
+}
+
+.scroll-mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100px;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+  &.top {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  }
+  
+  &.bottom {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  }
+  
+  &.visible {
+    opacity: 1;
+  }
 }

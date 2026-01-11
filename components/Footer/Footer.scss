@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  padding: 4rem 2rem;
+  padding: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   background-color: #000;
 }
@@ -23,11 +23,29 @@
   font-size: 0.875rem;
   font-weight: 400;
   color: var(--text-gray);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  
+  p {
+    margin: 0;
+  }
+}
+
+.beian {
+  font-size: 0.75rem;
+  color: var(--text-gray);
+  opacity: 0.8;
+  
+  &:hover {
+    opacity: 1;
+    color: var(--text-color);
+  }
 }
 
 .links {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -41,14 +59,28 @@
   color: var(--text-gray);
   text-decoration: none;
   transition: color 0.3s ease;
+  outline: none;
   
   &:hover {
     color: var(--text-color);
   }
+  
+  &:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 }
 
 .link-icon {
-  font-size: 1rem;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+  filter: invert(1); // Makes all icons white
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
 }
 
 @media (max-width: 768px) {

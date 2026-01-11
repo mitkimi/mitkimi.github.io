@@ -36,7 +36,7 @@ export default function AboutMe() {
               <div className="about-me-grid-span-one">
                 <h1 className="about-me-title">这里放一些其他的卡片，但是具体放什么还没想好</h1>
               </div>
-              <div className="about-me-grid-span-three about-me-card">
+              <div className="about-me-grid-span-three about-me-card about-me-swiper-card">
                 <div className="about-me-profile-section">
                   <div className="about-me-swiper-container">
                     <Swiper

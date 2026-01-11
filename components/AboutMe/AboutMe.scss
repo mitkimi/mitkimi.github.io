@@ -311,6 +311,9 @@
   
 }
 
+.about-me-swiper-card {
+  padding: 30px;
+}
 .about-me-profile-section {
   display: flex;
   gap: 20px;
@@ -322,7 +325,7 @@
     max-width: 100%; /* 防止溢出 */
     
     .about-me-swiper {
-      border-radius: 30px;
+      border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.2);
       background-color: rgba(255, 255, 255, 0.02);
       width: 100%;

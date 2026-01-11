@@ -2,10 +2,10 @@
   width: 100%;
   min-height: 100vh;
   padding: 8rem 2rem;
-  background-color: var(--bg-color);
+  background-color: #000;
 }
 
-.container {
+.skills-container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -29,7 +29,7 @@
   line-height: 1.6;
 }
 
-.grid {
+.skills-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
@@ -44,7 +44,7 @@
   }
 }
 
-.skillCard {
+.skill-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,12 +62,12 @@
   }
 }
 
-.skillIcon {
+.skill-icon {
   font-size: 3rem;
   margin-bottom: 0.5rem;
 }
 
-.skillName {
+.skill-name {
   font-size: 1rem;
   color: var(--text-color);
   text-align: center;
@@ -82,12 +82,12 @@
   margin-top: 4rem;
 }
 
-.ctaText {
+.cta-text {
   font-size: 1.25rem;
   color: var(--text-color);
 }
 
-.ctaButton {
+.cta-button {
   padding: 1rem 2rem;
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);

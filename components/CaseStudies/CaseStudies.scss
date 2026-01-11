@@ -1,38 +1,38 @@
-.caseStudies {
+.case-studies {
   width: 100%;
   min-height: 100vh;
   padding: 8rem 2rem;
-  background-color: var(--bg-color);
+  background-color: #000;
 }
 
-.container {
+.case-studies-container {
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
 }
 
-.grid {
+.case-studies-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 4rem;
   align-items: start;
 }
 
-.videoContainer {
+.video-container {
   position: sticky;
   top: 8rem;
   opacity: 1;
   transition: opacity 0.5s ease;
 }
 
-.browserWindow {
+.browser-window {
   background-color: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   overflow: hidden;
 }
 
-.browserBar {
+.browser-bar {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -41,7 +41,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.browserControls {
+.browser-controls {
   display: flex;
   gap: 0.5rem;
 }
@@ -58,7 +58,7 @@
   color: var(--text-color);
 }
 
-.addressBar {
+.address-bar {
   flex: 1;
   padding: 0.5rem 1rem;
   background-color: rgba(255, 255, 255, 0.05);
@@ -68,7 +68,7 @@
   font-family: monospace;
 }
 
-.browserActions {
+.browser-actions {
   display: flex;
   gap: 0.5rem;
 }
@@ -83,7 +83,7 @@
   font-size: 0.875rem;
 }
 
-.browserContent {
+.browser-content {
   display: flex;
   height: 600px;
   background-color: rgba(255, 255, 255, 0.02);
@@ -99,7 +99,7 @@
   gap: 1rem;
 }
 
-.sidebarHeader {
+.sidebar-header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -113,7 +113,7 @@
   gap: 0.5rem;
 }
 
-.progressBar {
+.progress-bar {
   height: 4px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
@@ -128,7 +128,7 @@
   }
 }
 
-.sidebarSection {
+.sidebar-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -136,7 +136,7 @@
   color: var(--text-gray);
 }
 
-.sidebarItem {
+.sidebar-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -161,11 +161,11 @@
   font-style: italic;
 }
 
-.submitButton {
+.submit-button {
   margin-top: auto;
   padding: 0.75rem;
   background-color: var(--text-color);
-  color: var(--bg-color);
+  color: #000;
   border: none;
   border-radius: 6px;
   font-weight: 600;
@@ -179,7 +179,7 @@
   padding: 2rem;
 }
 
-.colorPicker {
+.color-picker {
   position: absolute;
   top: 2rem;
   right: 2rem;
@@ -190,14 +190,14 @@
   border-radius: 8px;
 }
 
-.colorTitle {
+.color-title {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-color);
   margin-bottom: 1rem;
 }
 
-.colorGradient {
+.color-gradient {
   width: 100%;
   height: 150px;
   background: linear-gradient(to bottom, #ff0000, #000000);
@@ -205,26 +205,26 @@
   margin-bottom: 1rem;
 }
 
-.colorSliders {
+.color-sliders {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.rainbowSlider {
+.rainbow-slider {
   height: 20px;
   background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
   border-radius: 10px;
 }
 
-.bwSlider {
+.bw-slider {
   height: 20px;
   background: linear-gradient(to right, #000000, #ffffff);
   border-radius: 10px;
 }
 
-.colorValue {
+.color-value {
   font-size: 0.75rem;
   color: var(--text-gray);
   font-family: monospace;
@@ -241,7 +241,7 @@
   color: var(--text-color);
 }
 
-.canvasText {
+.canvas-text {
   position: absolute;
   bottom: 4rem;
   left: 2rem;
@@ -249,13 +249,13 @@
   color: var(--text-gray);
 }
 
-.exportButton {
+.export-button {
   position: absolute;
   bottom: 2rem;
   right: 2rem;
   padding: 0.75rem 1.5rem;
   background-color: var(--text-color);
-  color: var(--bg-color);
+  color: #000;
   border: none;
   border-radius: 6px;
   font-weight: 600;
@@ -289,7 +289,7 @@
   margin-bottom: 2rem;
 }
 
-.sectionTitle {
+.section-title {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-color);
@@ -298,7 +298,7 @@
   margin-bottom: 1rem;
 }
 
-.sectionText {
+.section-text {
   font-size: 1rem;
   color: var(--text-gray);
   line-height: 1.8;
@@ -334,14 +334,14 @@
   margin: 3rem 0;
 }
 
-.techLogo {
+.tech-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
 }
 
-.techIcon {
+.tech-icon {
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -353,14 +353,14 @@
   color: var(--text-color);
 }
 
-.techName {
+.tech-name {
   font-size: 0.875rem;
   color: var(--text-color);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.githubLink {
+.github-link {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -381,6 +381,6 @@
   }
 }
 
-.githubIcon {
+.github-icon {
   font-size: 1.5rem;
 }

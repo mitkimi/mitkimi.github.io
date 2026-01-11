@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import styles from './HowIWork.module.scss';
+import './HowIWork.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,66 +89,66 @@ export default function HowIWork() {
   }, []);
 
   return (
-    <section id="how-i-work" ref={sectionRef} className={styles.howIWork}>
-      <div className={styles.container}>
-        <div className={styles.grid}>
+    <section id="how-i-work" ref={sectionRef} className="how-i-work">
+      <div className="how-i-work-container">
+        <div className="how-i-work-grid">
           {/* 左侧内容区域 */}
-          <div className={styles.leftContent}>
-            <div className={styles.card}>
-              <h3 className={styles.cardTitle}>简化流程</h3>
+          <div className="left-content">
+            <div className="card">
+              <h3 className="card-title">简化流程</h3>
             </div>
-            <div className={styles.card}>
-              <h3 className={styles.cardTitle}>AI FORGE 第五期 学员</h3>
-              <p className={styles.cardSubtitle}>500多人中只有12人</p>
+            <div className="card">
+              <h3 className="card-title">AI FORGE 第五期 学员</h3>
+              <p className="card-subtitle">500多人中只有12人</p>
             </div>
-            <div className={styles.card}>
-              <h3 className={styles.cardTitle}>2023年人工智能专利 获奖者</h3>
-              <p className={styles.cardSubtitle}>IP Hatch 2023年度优胜者</p>
+            <div className="card">
+              <h3 className="card-title">2023年人工智能专利 获奖者</h3>
+              <p className="card-subtitle">IP Hatch 2023年度优胜者</p>
             </div>
-            <div className={styles.card}>
-              <h3 className={styles.cardTitle}>天空实验室2022年 决赛入围者</h3>
-              <p className={styles.cardSubtitle}>250多人中排名第18</p>
+            <div className="card">
+              <h3 className="card-title">天空实验室2022年 决赛入围者</h3>
+              <p className="card-subtitle">250多人中排名第18</p>
             </div>
           </div>
 
           {/* 右下角滚动卡片区域 */}
-          <div className={styles.rightContent}>
-            <div ref={cardsRef} className={styles.cardsContainer}>
+          <div className="right-content">
+            <div ref={cardsRef} className="cards-container">
               {cards.map((card, index) => (
-                <div key={index} className={styles.card}>
-                  <h3 className={styles.cardTitle}>{card.title}</h3>
-                  {card.description && <p className={styles.cardDescription}>{card.description}</p>}
+                <div key={index} className="card">
+                  <h3 className="card-title">{card.title}</h3>
+                  {card.description && <p className="card-description">{card.description}</p>}
                   {card.channels && (
-                    <div className={styles.channels}>
+                    <div className="channels">
                       {card.channels.map((channel, i) => (
-                        <div key={i} className={styles.channelItem}>
-                          <span className={styles.channelIcon} style={{ color: channel.color }}>
+                        <div key={i} className="channel-item">
+                          <span className="channel-icon" style={{ color: channel.color }}>
                             {channel.icon}
                           </span>
-                          <span className={styles.channelName}>{channel.name}</span>
+                          <span className="channel-name">{channel.name}</span>
                         </div>
                       ))}
-                      <button className={styles.ctaButton}>{card.cta}</button>
+                      <button className="cta-button">{card.cta}</button>
                     </div>
                   )}
-                  {card.icon && <div className={styles.icon}>{card.icon}</div>}
+                  {card.icon && <div className="icon">{card.icon}</div>}
                   {card.tags && (
-                    <div className={styles.tags}>
+                    <div className="tags">
                       {card.tags.map((tag, i) => (
-                        <span key={i} className={styles.tag}>{tag}</span>
+                        <span key={i} className="tag">{tag}</span>
                       ))}
-                      <a href="#" className={styles.tagLink}>{card.cta}</a>
+                      <a href="#" className="tag-link">{card.cta}</a>
                     </div>
                   )}
                   {card.items && (
-                    <div className={styles.timeCards}>
+                    <div className="time-cards">
                       {card.items.map((item, i) => (
-                        <div key={i} className={styles.timeCard}>
-                          <h4 className={styles.timeTitle}>{item.time}</h4>
-                          <p className={styles.timeLabel} style={{ color: item.color }}>
+                        <div key={i} className="time-card">
+                          <h4 className="time-title">{item.time}</h4>
+                          <p className="time-label" style={{ color: item.color }}>
                             {item.label}
                           </p>
-                          <p className={styles.timeSubtitle}>响应保证</p>
+                          <p className="time-subtitle">响应保证</p>
                         </div>
                       ))}
                     </div>

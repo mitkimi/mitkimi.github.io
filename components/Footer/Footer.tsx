@@ -1,28 +1,20 @@
 'use client';
 
-import styles from './Footer.module.scss';
+import './Footer.scss';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <p className={styles.copyright}>
-            Copyright © {currentYear} Stavros Symeonidis
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-content">
+          <p className="copyright">
+            Copyright &copy; {currentYear} Kimi Tin, i.mitkimi.com
           </p>
-          <div className={styles.links}>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className={styles.link}>
-              <span className={styles.linkIcon}>🐙</span>
+          <div className="links">
+            <a href="https://github.com/mitkimi" target="_blank" rel="noopener noreferrer" className="link">
               <span>Github</span>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.link}>
-              <span className={styles.linkIcon}>in</span>
-              <span>LinkedIn</span>
-            </a>
-            <a href="#" className={styles.link}>
-              隐私政策
             </a>
           </div>
         </div>

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import "@apron-design/react/styles";
 import "./globals.scss";
 
 export const metadata: Metadata = {
-  title: "全栈开发者",
+  title: "Kimi Tin · P8 程序员再就业",
   description: "专注于创建优雅的用户体验和高性能的 Web 应用程序",
 };
 
@@ -12,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body>
+      <body apron-theme="dark">
         {children}
       </body>
     </html>

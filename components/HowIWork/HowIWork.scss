@@ -1,35 +1,35 @@
-.howIWork {
+.how-i-work {
   width: 100%;
   min-height: 100vh;
   padding: 8rem 2rem;
-  background-color: var(--bg-color);
+  background-color: #000;
 }
 
-.container {
+.how-i-work-container {
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
 }
 
-.grid {
+.how-i-work-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 2rem;
   position: relative;
 }
 
-.leftContent {
+.left-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.rightContent {
+.right-content {
   position: relative;
   overflow: hidden;
 }
 
-.cardsContainer {
+.cards-container {
   display: flex;
   gap: 1.5rem;
   width: max-content;
@@ -50,7 +50,7 @@
   }
 }
 
-.cardTitle {
+.card-title {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-color);
@@ -59,13 +59,13 @@
   letter-spacing: 0.05em;
 }
 
-.cardSubtitle {
+.card-subtitle {
   font-size: 0.875rem;
   color: var(--text-gray);
   margin-top: 0.5rem;
 }
 
-.cardDescription {
+.card-description {
   font-size: 1rem;
   color: var(--text-gray);
   line-height: 1.6;
@@ -79,7 +79,7 @@
   margin-bottom: 1.5rem;
 }
 
-.channelItem {
+.channel-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,22 +89,22 @@
   border-radius: 8px;
 }
 
-.channelIcon {
+.channel-icon {
   font-size: 2rem;
 }
 
-.channelName {
+.channel-name {
   font-size: 0.75rem;
   color: var(--text-gray);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.ctaButton {
+.cta-button {
   width: 100%;
   padding: 1rem;
   background-color: var(--text-color);
-  color: var(--bg-color);
+  color: #000;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -142,7 +142,7 @@
   letter-spacing: 0.05em;
 }
 
-.tagLink {
+.tag-link {
   display: inline-block;
   padding: 0.5rem 1rem;
   color: var(--text-color);
@@ -157,12 +157,12 @@
   }
 }
 
-.timeCards {
+.time-cards {
   display: flex;
   gap: 1rem;
 }
 
-.timeCard {
+.time-card {
   flex: 1;
   padding: 1.5rem;
   background-color: rgba(255, 255, 255, 0.05);
@@ -170,14 +170,14 @@
   text-align: center;
 }
 
-.timeTitle {
+.time-title {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-color);
   margin-bottom: 0.5rem;
 }
 
-.timeLabel {
+.time-label {
   font-size: 0.875rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
@@ -185,7 +185,7 @@
   letter-spacing: 0.05em;
 }
 
-.timeSubtitle {
+.time-subtitle {
   font-size: 0.75rem;
   color: var(--text-gray);
 }

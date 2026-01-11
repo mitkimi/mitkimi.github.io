@@ -2,16 +2,16 @@
   width: 100%;
   padding: 4rem 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: var(--bg-color);
+  background-color: #000;
 }
 
-.container {
+.footer-container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-.content {
+.footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,12 +47,12 @@
   }
 }
 
-.linkIcon {
+.link-icon {
   font-size: 1rem;
 }
 
 @media (max-width: 768px) {
-  .content {
+  .footer-content {
     flex-direction: column;
     text-align: center;
   }

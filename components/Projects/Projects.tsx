@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import styles from './Projects.module.scss';
+import './Projects.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,25 +86,25 @@ export default function Projects() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.projects}>
-      <div className={styles.container}>
-        <h2 ref={titleRef} className={styles.title}>
+    <section ref={sectionRef} className="projects">
+      <div className="projects-container">
+        <h2 ref={titleRef} className="title">
           项目
         </h2>
-        <div ref={projectsRef} className={styles.projectsGrid}>
+        <div ref={projectsRef} className="projects-grid">
           {projects.map((project, index) => (
-            <div key={index} className={styles.projectCard}>
-              <h3 className={styles.projectTitle}>{project.title}</h3>
-              <p className={styles.projectDescription}>{project.description}</p>
-              <div className={styles.projectTags}>
+            <div key={index} className="project-card">
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-description">{project.description}</p>
+              <div className="project-tags">
                 {project.tags.map((tag, tagIndex) => (
-                  <span key={tagIndex} className={styles.tag}>
+                  <span key={tagIndex} className="tag">
                     {tag}
                   </span>
                 ))}
               </div>
               {project.link && (
-                <a href={project.link} className={styles.projectLink} target="_blank" rel="noopener noreferrer">
+                <a href={project.link} className="project-link" target="_blank" rel="noopener noreferrer">
                   查看项目 →
                 </a>
               )}

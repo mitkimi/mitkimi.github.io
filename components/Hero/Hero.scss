@@ -6,7 +6,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background-color: var(--bg-color);
+  background-color: #000;
 }
 
 .background {
@@ -16,17 +16,28 @@
   right: 0;
   bottom: 0;
   z-index: 0;
-  opacity: 0.3;
+  opacity: 1;
 }
 
-.heroContent {
+.backdrop-blur-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  backdrop-filter: blur(5px);
+  pointer-events: none;
+}
+
+.hero-content {
   text-align: center;
   z-index: 1;
   padding: 0 calc(var(--spacing-unit) * 2);
   position: relative;
 }
 
-.heroTitle {
+.hero-title {
   font-size: clamp(3rem, 12vw, 10rem);
   font-weight: 700;
   line-height: 1.1;
@@ -36,7 +47,7 @@
   color: var(--text-color);
 }
 
-.heroSubtitle {
+.hero-subtitle {
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 400;
   line-height: 1.6;

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import styles from './Particles.module.scss';
+import './Particles.scss';
 
 interface ParticlesProps {
   count?: number;
@@ -29,7 +29,7 @@ export default function Particles({
     // 创建粒子
     for (let i = 0; i < count; i++) {
       const particle = document.createElement('div');
-      particle.className = styles.particle;
+      particle.className = 'particle';
       particle.style.width = `${size}px`;
       particle.style.height = `${size}px`;
       particle.style.backgroundColor = color;
@@ -47,5 +47,5 @@ export default function Particles({
     };
   }, [count, color, opacity, size]);
 
-  return <div ref={containerRef} className={styles.particles} />;
+  return <div ref={containerRef} className="particles" />;
 }

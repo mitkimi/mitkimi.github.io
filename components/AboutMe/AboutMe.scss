@@ -1,0 +1,474 @@
+.about-me {
+  width: 100%;
+  min-height: 100vh;
+  padding: 8rem 2rem;
+  background-color: #000;
+}
+
+.about-me-content {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.about-me-left {
+  flex: 4;
+  min-width: 0; /* 防止内容溢出 */
+}
+
+.about-me-right {
+  flex: 1;
+  min-width: 0; /* 防止内容溢出 */
+}
+
+.about-me-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.about-me-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr 400px;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.left-sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  transform: rotate(180deg);
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-card {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-height: 200px;
+  justify-content: center;
+}
+
+.card-icon {
+  font-size: 3rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  color: var(--text-color);
+  text-align: center;
+  font-weight: 500;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+
+
+.profile-image {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--text-gray);
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.name {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.role {
+  font-size: 1.25rem;
+  color: var(--text-gray);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.social-link {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+.social-icon {
+  font-size: 1.5rem;
+}
+
+.bio {
+  margin-top: 1.5rem;
+  
+  p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.right-card {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  position: relative;
+}
+
+.right-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.right-card-text {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.8;
+}
+
+.lightning-icon {
+  font-size: 6rem;
+  text-align: center;
+  background: linear-gradient(135deg, #ff6b00, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bottom-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.bottom-card {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.bottom-card-text {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.rocket-icon {
+  font-size: 4rem;
+  background: linear-gradient(135deg, #ff6b00, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bottom-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bottom-card-subtitle {
+  font-size: 1rem;
+  color: var(--text-gray);
+}
+
+.about-me-title {
+  color: #fff; /* 字始终白色 */
+  font-family: 'SmileySans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* slogan 字体 */
+  margin-bottom: 15px; /* 增加下边距 */
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.happy-font {
+  font-family: 'SmileySans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* 得意黑字体，同slogan字体 */
+}
+
+/* 当 about-me-card 中只有 h1 标题时，标题没有下边距 */
+.about-me-card:has(> .about-me-title:only-child) .about-me-title {
+  margin-bottom: 0;
+}
+
+/* 备选方案：如果浏览器不支持 :has 选择器 */
+.about-me-card.has-only-title .about-me-title {
+  margin-bottom: 0;
+}
+
+.about-me-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-me-card {
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* 默认边框 20% 白 */
+  padding: 30px 25px; /* 增大的内边距 */
+  background-color: rgba(255, 255, 255, 0.02); /* 保持与其他卡片一致的背景 */
+  height: 100%; /* 卡片高度填充整个网格项 */
+  color: rgba(255, 255, 255, 0.5); /* 默认字 50% 白 */
+  line-height: 24px; /* 行高24px */
+  font-size: 16px; /* 字号16px */
+  opacity: 1; /* 移除之前的opacity设置 */
+  transition: all 0.3s ease; /* 添加过渡效果 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.6); /* hover 边框 60% 白 */
+    color: #fff; /* hover 字 100% 白 */
+  }
+  
+}
+
+.about-me-profile-section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  
+  .about-me-swiper-container {
+    flex: 1; /* 占据一半宽度 */
+    width: calc(50% - 10px); /* 明确设置宽度为一半减去半个gap */
+    max-width: 100%; /* 防止溢出 */
+    
+    .about-me-swiper {
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.02);
+      width: 100%;
+      aspect-ratio: 1 / 1; /* 保持正方形宽高比 */
+      
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+    }
+  }
+  
+  .about-me-info {
+    flex: 1; /* 与 Swiper 容器各占一半宽度 */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .about-me-name {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+  }
+  
+  .about-me-bio {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 20px;
+  }
+  
+  .social-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .social-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* 确保没有边框 */
+    
+    &:hover {
+      color: #fff;
+      transform: translateY(-2px);
+    }
+  }
+  
+  .social-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* Makes all icons white */
+  }
+}
+
+.swiper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-me-swiper {
+  .swiper-pagination {
+    bottom: 10px;
+    
+    /* 添加渐变黑色衬底 */
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 100%);
+      z-index: -1;
+    }
+    
+    .swiper-pagination-bullet {
+      background-color: rgba(255, 255, 255, 0.2);
+      opacity: 1;
+      width: 8px;
+      height: 8px;
+      transition: all 0.3s ease;
+      
+      &.swiper-pagination-bullet-active {
+        background-color: rgba(255, 255, 255, .8);
+        width: 20px;
+        height: 8px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.about-me-grid-four-column {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.about-me-grid-item {
+  width: 100%;
+}
+
+.about-me-grid-four {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.about-me-left > .about-me-grid-one-quarter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.about-me-grid-span-one {
+  grid-column: span 1;
+  min-width: 0;
+  height: fit-content;
+}
+
+.about-me-grid-span-three {
+  grid-column: span 3;
+  min-width: 0;
+  height: fit-content;
+}
+
+.about-me-card-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-self: stretch;
+  min-width: 0; /* 防止内容溢出 */
+}

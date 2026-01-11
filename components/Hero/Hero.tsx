@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import Particles from '@/components/Particles/Particles';
-import styles from './Hero.module.scss';
+import Orb from '@/components/Orb/Orb';
+import './Hero.scss';
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -46,22 +46,15 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" ref={heroRef} className={styles.hero}>
-      <div className={styles.background}>
-        <Particles
-          count={50}
-          color="#ffffff"
-          speed={0.5}
-          opacity={0.1}
-          size={2}
-        />
-      </div>
-      <div className={styles.heroContent}>
-        <h1 ref={titleRef} className={styles.heroTitle}>
-          从概念到生产
+    <section id="home" ref={heroRef} className="hero">
+      <Orb />
+      <div className="backdrop-blur-layer" />
+      <div className="hero-content">
+        <h1 ref={titleRef} className="hero-title font-smiley">
+          全栈工程师
         </h1>
-        <p ref={subtitleRef} className={styles.heroSubtitle}>
-          与真正了解您业务需求的合作伙伴携手，将您的愿景变为现实
+        <p ref={subtitleRef} className="hero-subtitle font-smiley">
+          解决复杂问题，创造简单体验
         </p>
       </div>
     </section>

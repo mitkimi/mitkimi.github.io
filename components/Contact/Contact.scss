@@ -2,23 +2,23 @@
   width: 100%;
   min-height: 100vh;
   padding: 8rem 2rem;
-  background-color: var(--bg-color);
+  background-color: #000;
 }
 
-.container {
+.contact-container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-.grid {
+.contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
 }
 
-.leftContent {
+.left-content {
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -39,13 +39,13 @@
   line-height: 1.8;
 }
 
-.contactInfo {
+.contact-info {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.contactItem {
+.contact-item {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -61,19 +61,19 @@
   }
 }
 
-.contactIcon {
+.contact-icon {
   font-size: 1.5rem;
 }
 
-.contactText {
+.contact-text {
   flex: 1;
   font-size: 1rem;
   color: var(--text-color);
   font-family: monospace;
 }
 
-.copyButton,
-.externalLink {
+.copy-button,
+.external-link {
   width: 32px;
   height: 32px;
   display: flex;
@@ -93,7 +93,7 @@
   }
 }
 
-.rightContent {
+.right-content {
   display: flex;
   flex-direction: column;
 }
@@ -104,7 +104,7 @@
   gap: 2rem;
 }
 
-.formGroup {
+.form-group {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -147,7 +147,7 @@
   min-height: 150px;
 }
 
-.submitButton {
+.submit-button {
   padding: 1.25rem 2rem;
   background-color: transparent;
   border: 2px solid;
@@ -176,7 +176,7 @@
   }
 
   &:hover {
-    color: var(--bg-color);
+    color: #000;
     
     &::before {
       left: 0;

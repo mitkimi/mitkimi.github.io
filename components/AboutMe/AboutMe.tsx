@@ -4,12 +4,184 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import './AboutMe.scss';
 
+import { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+// 定义 ScrollTrigger 类型
+interface GSAPScrollTriggerInstance {
+  kill: () => void;
+  progress: number;
+  // 添加其他可能用到的属性
+}
+
 export default function AboutMe() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const leftRef = useRef<HTMLDivElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
+  const [scrollTop, setScrollTop] = useState(0);
+  const [rightCardPadding, setRightCardPadding] = useState({ top: 30, bottom: 30 });
+  
+  // 模拟8张卡片的数据
+  const cardsData = [
+    { id: 1, title: "React 开发专家", content: "熟练掌握 React 生态系统，构建高性能前端应用。" },
+    { id: 2, title: "Node.js 全栈", content: "具备完整的 Node.js 后端开发能力。" },
+    { id: 3, title: "TypeScript 实践", content: "深度使用 TypeScript 提升代码质量与维护性。" },
+    { id: 4, title: "微前端架构", content: "设计并实现微前端解决方案。" },
+    { id: 5, title: "性能优化专家", content: "擅长前端性能分析与优化实践。" },
+    { id: 6, title: "CI/CD 实践", content: "构建自动化部署流水线。" },
+    { id: 7, title: "DevOps 工程师", content: "具备云服务运维经验。" },
+    { id: 8, title: "开源贡献者", content: "积极参与多个开源项目。" },
+  ];
+  
+  // 使用 GSAP 控制滚动容器滚动，实现固定视口效果
+  useEffect(() => {
+    let scrollTrigger: GSAPScrollTriggerInstance;
+    
+    const initScrollTrigger = () => {
+      // 销毁现有的 ScrollTrigger
+      if (scrollTrigger) {
+        scrollTrigger.kill();
+      }
+      
+      const sectionElement = document.getElementById('about');
+      
+      if (sectionElement) {
+        // 使用 GSAP ScrollTrigger 来控制滚动
+        scrollTrigger = ScrollTrigger.create({
+          trigger: sectionElement,
+          start: 'top top',
+          end: () => '+=' + (sectionElement.scrollHeight || window.innerHeight),
+          pin: true,
+          pinSpacing: true,
+          anticipatePin: 1, // 预先计算空间
+          onUpdate: (self) => {
+            if (scrollContainerRef.current) {
+              const maxScroll = scrollContainerRef.current.scrollHeight - scrollContainerRef.current.clientHeight;
+              const scrolled = self.progress * maxScroll;
+              
+              scrollContainerRef.current.scrollTop = scrolled;
+              setScrollTop(scrolled);
+            }
+          },
+          scrub: 1, // 平滑滚动效果
+        }) as GSAPScrollTriggerInstance;
+      }
+    };
+    
+    // 延迟初始化以确保 DOM 准备就绪
+    requestAnimationFrame(() => {
+      initScrollTrigger();
+    });
+    
+    // 窗口大小改变时重新初始化
+    window.addEventListener('resize', initScrollTrigger);
+    
+    return () => {
+      if (scrollTrigger) {
+        scrollTrigger.kill();
+      }
+      window.removeEventListener('resize', initScrollTrigger);
+    };
+  }, []);
+  
+  // 计算是否显示顶部遮罩 - 开始滚动时就出现
+  const showTopMask = scrollTop > 0;
+  
+  // 计算是否显示底部遮罩 - 滚动到最底端时消失
+  const isNearBottom = scrollContainerRef.current 
+    ? Math.abs(scrollContainerRef.current.scrollHeight - scrollContainerRef.current.clientHeight - scrollTop) < 5
+    : false;
+  
+  // 设置滚动容器高度与Swiper容器一致
+  useEffect(() => {
+    const setScrollContainerHeight = () => {
+      if (leftRef.current && scrollContainerRef.current) {
+        const swiperCard = leftRef.current.querySelector('.about-me-swiper-card');
+        if (swiperCard) {
+          const swiperHeight = swiperCard.getBoundingClientRect().height;
+          scrollContainerRef.current.style.height = `${swiperHeight}px`;
+        }
+      }
+    };
+    
+    // 初始设置 - 使用requestAnimationFrame确保DOM完全渲染
+    requestAnimationFrame(() => {
+      setScrollContainerHeight();
+    });
+    
+    // 窗口大小变化时重新设置
+    window.addEventListener('resize', setScrollContainerHeight);
+    
+    return () => {
+      window.removeEventListener('resize', setScrollContainerHeight);
+    };
+  }, []);
+  
+  // 实现左右两侧等高逻辑
+  useEffect(() => {
+    const adjustHeights = () => {
+      if (leftRef.current && rightRef.current) {
+        // 获取左侧高度（第一行卡片网格高度 + swiper容器高度）
+        const leftTopGrid = leftRef.current.querySelector('.about-me-grid-four-column');
+        const swiperCard = leftRef.current.querySelector('.about-me-swiper-card');
+        
+        if (leftTopGrid && swiperCard) {
+          const leftTopHeight = leftTopGrid.getBoundingClientRect().height;
+          const swiperCardHeight = swiperCard.getBoundingClientRect().height;
+          const totalLeftHeight = leftTopHeight + swiperCardHeight + 20; // 20px是gap
+          
+          // 设置左侧高度
+          leftRef.current.style.height = `${totalLeftHeight}px`;
+          
+          // 调整右侧高度
+          rightRef.current.style.height = `${totalLeftHeight}px`;
+          
+          // 检查右侧卡片容器高度是否需要调整
+          const rightCardContainer = rightRef.current.querySelector('.about-me-card-container');
+          if (rightCardContainer) {
+            const rightContainerHeight = rightCardContainer.getBoundingClientRect().height;
+            
+            if (rightContainerHeight < totalLeftHeight) {
+              // 计算需要增加的间距
+              const heightDiff = totalLeftHeight - rightContainerHeight;
+              
+              // 增加最后一个卡片的上下内边距
+              setRightCardPadding({
+                top: 30 + heightDiff / 2,
+                bottom: 30 + heightDiff / 2
+              });
+            } else {
+              // 如果不需要调整，重置回默认值
+              setRightCardPadding({
+                top: 30,
+                bottom: 30
+              });
+            }
+          }
+        }
+      }
+    };
+    
+    // 初始调整
+    setTimeout(adjustHeights, 100); // 延迟执行以确保DOM完全渲染
+    
+    // 窗口大小改变时调整
+    window.addEventListener('resize', adjustHeights);
+    
+    // 组件卸载时移除事件监听
+    return () => {
+      window.removeEventListener('resize', adjustHeights);
+    };
+  }, []);
+  
   return (
     <section id="about" className="about-me">
       <div className="about-me-container">
         <div className="about-me-content">
-          <div className="about-me-left">
+          <div className="about-me-left" ref={leftRef}>
             <div className="about-me-grid-four-column">
               <div className="about-me-grid-item about-me-card-group">
                 <div className="about-me-card">
@@ -34,7 +206,24 @@ export default function AboutMe() {
             </div>
             <div className="about-me-grid-one-quarter">
               <div className="about-me-grid-span-one">
-                <h1 className="about-me-title">这里放一些其他的卡片，但是具体放什么还没想好</h1>
+                {/* 滚动容器 */}
+                <div className="scroll-container-wrapper">
+                  <div 
+                    className="scroll-container" 
+                    ref={scrollContainerRef}
+                  >
+                    {cardsData.map((card) => (
+                      <div key={card.id} className="about-me-card scroll-card">
+                        <h1 className="about-me-title">{card.title}</h1>
+                        <p>{card.content}</p>
+                      </div>
+                    ))}
+                  </div>
+                  {/* 顶部渐变遮罩 */}
+                  <div className={`scroll-mask top ${showTopMask ? 'visible' : ''}`}></div>
+                  {/* 底部渐变遮罩 */}
+                  <div className={`scroll-mask bottom ${!isNearBottom ? 'visible' : ''}`}></div>
+                </div>
               </div>
               <div className="about-me-grid-span-three about-me-card about-me-swiper-card">
                 <div className="about-me-profile-section">
@@ -103,7 +292,7 @@ export default function AboutMe() {
               </div>
             </div>
           </div>
-          <div className="about-me-right">
+          <div className="about-me-right" ref={rightRef}>
             <div className="about-me-card-container">
               <div className="about-me-card self-introduction">
                 <h1 className="about-me-title">自我介绍</h1>
@@ -114,7 +303,13 @@ export default function AboutMe() {
                 <p>我曾经是一个职业魔术师，参与过综艺节目录制，开过魔术专场，是国际华人魔术师联盟成员。</p>
                 <p>音乐方面比较喜欢管风琴，是一个管风琴票友。</p>
               </div>
-              <div className="about-me-card">
+              <div 
+                className={`about-me-card ${rightCardPadding.top !== 30 || rightCardPadding.bottom !== 30 ? 'adjusted-padding' : ''}`}
+                style={{
+                  '--adjusted-padding-top': `${rightCardPadding.top}px`,
+                  '--adjusted-padding-bottom': `${rightCardPadding.bottom}px`
+                } as React.CSSProperties}
+              >
                 <p>我喜欢收藏卡片、球鞋、手办等。</p>
               </div>
             </div>

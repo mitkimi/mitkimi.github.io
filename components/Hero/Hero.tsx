@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Orb from '@/components/Orb/Orb';
+import TextType from '@/components/TextType/TextType';
 import './Hero.scss';
 
 export default function Hero() {
@@ -51,10 +52,16 @@ export default function Hero() {
       <div className="backdrop-blur-layer" />
       <div className="hero-content">
         <h1 ref={titleRef} className="hero-title font-smiley">
-          全栈工程师
+          <TextType 
+            text={["解决复杂问题", "创造简单体验"]}
+            typingSpeed={100}
+            pauseDuration={3000}
+            showCursor={true}
+            cursorCharacter="_"
+          />
         </h1>
         <p ref={subtitleRef} className="hero-subtitle font-smiley">
-          解决复杂问题，创造简单体验
+          全栈工程师 · 产品经理 · 创 业 者
         </p>
       </div>
     </section>

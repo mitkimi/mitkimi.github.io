@@ -24,6 +24,18 @@ export default function AboutMe() {
   const [scrollTop, setScrollTop] = useState(0);
   const [rightCardPadding, setRightCardPadding] = useState({ top: 30, bottom: 30 });
   
+  // 检测是否为苹果设备
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const isAppleDevice = /Mac|iPod|iPhone|iPad/.test(navigator.userAgent);
+      if (isAppleDevice) {
+        document.body.classList.add('apple-device');
+      } else {
+        document.body.classList.remove('apple-device');
+      }
+    }
+  }, []);
+  
   // 模拟8张卡片的数据
   const cardsData = [
     { id: 1, title: "React 开发专家", content: "熟练掌握 React 生态系统，构建高性能前端应用。" },
@@ -185,7 +197,8 @@ export default function AboutMe() {
             <div className="about-me-grid-four-column">
               <div className="about-me-grid-item about-me-card-group">
                 <div className="about-me-card">
-                  <h1 className="about-me-title"> 苹果开发者</h1>
+                  <h1 className="about-me-title">
+                    <span className="apple-only"> </span>苹果开发者</h1>
                 </div>
                 <div className="about-me-card">
                   <h1 className="about-me-title">产品经理</h1>

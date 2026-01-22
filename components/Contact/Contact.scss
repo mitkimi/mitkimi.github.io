@@ -1,40 +1,40 @@
 .contact {
   width: 100%;
   min-height: 100vh;
-  padding: 8rem 2rem;
+  padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 2vw, 2rem);
   background-color: #000;
 }
 
 .contact-container {
   width: 100%;
-  max-width: 1400px;
+  max-width: clamp(1200px, 90vw, 1400px);
   margin: 0 auto;
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: clamp(2rem, 4vw, 4rem);
   align-items: start;
 }
 
 .left-content {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: clamp(1.5rem, 3vw, 3rem);
 }
 
 .title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2.5rem, 4vmin, 5rem);
   font-weight: 700;
   color: var(--text-color);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: clamp(0.05em, 0.1vw, 0.1em);
   line-height: 1.2;
 }
 
 .description {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
   color: var(--text-gray);
   line-height: 1.8;
 }
@@ -42,17 +42,17 @@
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
+  gap: clamp(0.75rem, 1vw, 1rem);
+  padding: clamp(1rem, 1.5vw, 1.5rem);
   background-color: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: clamp(8px, 0.75vw, 12px);
   transition: all 0.3s ease;
 
   &:hover {
@@ -62,26 +62,26 @@
 }
 
 .contact-icon {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
 }
 
 .contact-text {
   flex: 1;
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 1vw, 1rem);
   color: var(--text-color);
   font-family: monospace;
 }
 
 .copy-button,
 .external-link {
-  width: 32px;
-  height: 32px;
+  width: clamp(28px, 2vw, 32px);
+  height: clamp(28px, 2vw, 32px);
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  border-radius: clamp(4px, 0.4vw, 6px);
   color: var(--text-color);
   text-decoration: none;
   cursor: pointer;
@@ -101,32 +101,32 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: clamp(0.5rem, 0.75vw, 0.75rem);
 }
 
 .label {
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.875vw, 0.875rem);
   font-weight: 500;
   color: var(--text-color);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
 }
 
 .input,
 .textarea {
   width: 100%;
-  padding: 1rem;
+  padding: clamp(0.75rem, 1vw, 1rem);
   background-color: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  border-radius: clamp(6px, 0.5vw, 8px);
   color: var(--text-color);
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 1vw, 1rem);
   font-family: inherit;
   transition: all 0.3s ease;
 
@@ -144,20 +144,20 @@
 
 .textarea {
   resize: vertical;
-  min-height: 150px;
+  min-height: clamp(120px, 10vw, 150px);
 }
 
 .submit-button {
-  padding: 1.25rem 2rem;
+  padding: clamp(1rem, 1.25vw, 1.25rem) clamp(1.5rem, 2vw, 2rem);
   background-color: transparent;
   border: 2px solid;
   border-image: linear-gradient(135deg, #ff6b00, #9b59b6, #00d4ff) 1;
-  border-radius: 8px;
+  border-radius: clamp(6px, 0.5vw, 8px);
   color: var(--text-color);
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 1vw, 1rem);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;

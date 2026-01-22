@@ -22,7 +22,6 @@ export default function AboutMe() {
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
   const [scrollTop, setScrollTop] = useState(0);
-  const [rightCardPadding, setRightCardPadding] = useState({ top: 30, bottom: 30 });
   
   // 检测是否为苹果设备
   useEffect(() => {
@@ -143,36 +142,16 @@ export default function AboutMe() {
         if (leftTopGrid && swiperCard) {
           const leftTopHeight = leftTopGrid.getBoundingClientRect().height;
           const swiperCardHeight = swiperCard.getBoundingClientRect().height;
-          const totalLeftHeight = leftTopHeight + swiperCardHeight + 20; // 20px是gap
+          // 获取实际的 gap 值（从 about-me-grid-one-quarter 的样式）
+          const gridOneQuarter = leftRef.current.querySelector('.about-me-grid-one-quarter');
+          const gap = gridOneQuarter ? parseFloat(getComputedStyle(gridOneQuarter).gap) || 20 : 20;
+          const totalLeftHeight = leftTopHeight + swiperCardHeight + gap;
           
           // 设置左侧高度
           leftRef.current.style.height = `${totalLeftHeight}px`;
           
           // 调整右侧高度
           rightRef.current.style.height = `${totalLeftHeight}px`;
-          
-          // 检查右侧卡片容器高度是否需要调整
-          const rightCardContainer = rightRef.current.querySelector('.about-me-card-container');
-          if (rightCardContainer) {
-            const rightContainerHeight = rightCardContainer.getBoundingClientRect().height;
-            
-            if (rightContainerHeight < totalLeftHeight) {
-              // 计算需要增加的间距
-              const heightDiff = totalLeftHeight - rightContainerHeight;
-              
-              // 增加最后一个卡片的上下内边距
-              setRightCardPadding({
-                top: 30 + heightDiff / 2,
-                bottom: 30 + heightDiff / 2
-              });
-            } else {
-              // 如果不需要调整，重置回默认值
-              setRightCardPadding({
-                top: 30,
-                bottom: 30
-              });
-            }
-          }
         }
       }
     };
@@ -257,16 +236,31 @@ export default function AboutMe() {
                       className="about-me-swiper"
                     >
                       <SwiperSlide>
-                        <img src="/assets/kimi-01.jpg" alt="Kimi Tin 01" className="swiper-image" />
+                        <img src="/assets/kimi_01.JPG" alt="Kimi Tin 01" className="swiper-image" />
                       </SwiperSlide>
                       <SwiperSlide>
-                        <img src="/assets/kimi-02.jpg" alt="Kimi Tin 02" className="swiper-image" />
+                        <img src="/assets/kimi_02.JPG" alt="Kimi Tin 02" className="swiper-image" />
                       </SwiperSlide>
                       <SwiperSlide>
-                        <img src="/assets/kimi-03.jpg" alt="Kimi Tin 03" className="swiper-image" />
+                        <img src="/assets/kimi_03.JPG" alt="Kimi Tin 03" className="swiper-image" />
                       </SwiperSlide>
                       <SwiperSlide>
-                        <img src="/assets/kimi-04.jpg" alt="Kimi Tin 04" className="swiper-image" />
+                        <img src="/assets/kimi_04.JPG" alt="Kimi Tin 04" className="swiper-image" />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img src="/assets/kimi_05.JPG" alt="Kimi Tin 05" className="swiper-image" />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img src="/assets/kimi_06.JPG" alt="Kimi Tin 06" className="swiper-image" />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img src="/assets/kimi_07.JPG" alt="Kimi Tin 07" className="swiper-image" />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img src="/assets/kimi_08.JPG" alt="Kimi Tin 08" className="swiper-image" />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img src="/assets/kimi_09.JPG" alt="Kimi Tin 09" className="swiper-image" />
                       </SwiperSlide>
                     </Swiper>
                   </div>
@@ -313,17 +307,8 @@ export default function AboutMe() {
               </div>
               <div className="about-me-card">
                 <h1 className="about-me-title">除了写代码</h1>
-                <p>我曾经是一个职业魔术师，参与过综艺节目录制，开过魔术专场，是国际华人魔术师联盟成员。</p>
+                <p>我曾经是一个职业魔术师，参与过综艺节目录制，开过魔术专场，国际华人魔术师联盟成员。</p>
                 <p>音乐方面比较喜欢管风琴，是一个管风琴票友。</p>
-              </div>
-              <div 
-                className={`about-me-card ${rightCardPadding.top !== 30 || rightCardPadding.bottom !== 30 ? 'adjusted-padding' : ''}`}
-                style={{
-                  '--adjusted-padding-top': `${rightCardPadding.top}px`,
-                  '--adjusted-padding-bottom': `${rightCardPadding.bottom}px`
-                } as React.CSSProperties}
-              >
-                <p>我喜欢收藏卡片、球鞋、手办等。</p>
               </div>
             </div>
           </div>

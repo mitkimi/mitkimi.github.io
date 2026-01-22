@@ -1,7 +1,7 @@
 .about-me {
   width: 100%;
   min-height: 100vh;
-  padding: 8rem 2rem;
+  padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 2vw, 2rem);
   background-color: #000;
   
   /* 确保在 pin 时正确显示 */
@@ -17,7 +17,7 @@
 
 .about-me-content {
   display: flex;
-  gap: 20px;
+  gap: clamp(1rem, 1.5vw, 1.25rem);
   width: 100%;
 }
 
@@ -29,19 +29,21 @@
 .about-me-right {
   flex: 1;
   min-width: 0; /* 防止内容溢出 */
+  display: flex;
+  flex-direction: column;
 }
 
 .about-me-container {
   width: 100%;
-  max-width: 1600px;
+  max-width: clamp(1200px, 90vw, 1600px);
   margin: 0 auto;
 }
 
 .about-me-grid {
   display: grid;
-  grid-template-columns: 200px 1fr 400px;
-  gap: 3rem;
-  margin-bottom: 4rem;
+  grid-template-columns: clamp(150px, 12vw, 200px) 1fr clamp(300px, 25vw, 400px);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  margin-bottom: clamp(2rem, 4vw, 4rem);
 }
 
 .left-sidebar {
@@ -53,40 +55,40 @@
 .sidebar-label {
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
   font-weight: 600;
   color: var(--text-color);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 2rem;
+  letter-spacing: clamp(0.05em, 0.1vw, 0.1em);
+  margin-bottom: clamp(1rem, 2vw, 2rem);
   transform: rotate(180deg);
 }
 
 .cards-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 .experience-card {
-  padding: 2rem;
+  padding: clamp(1rem, 2vw, 2rem);
   background-color: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: clamp(8px, 0.75vw, 12px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  min-height: 200px;
+  gap: clamp(0.75rem, 1vw, 1rem);
+  min-height: clamp(150px, 15vw, 200px);
   justify-content: center;
 }
 
 .card-icon {
-  font-size: 3rem;
+  font-size: clamp(2rem, 3vw, 3rem);
 }
 
 .card-title {
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 1vw, 1rem);
   color: var(--text-color);
   text-align: center;
   font-weight: 500;
@@ -96,16 +98,16 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 20px;
+  gap: clamp(1rem, 1.5vw, 1.25rem);
 }
 
 
 
 .profile-image {
   width: 100%;
-  max-width: 500px;
+  max-width: clamp(400px, 35vw, 500px);
   aspect-ratio: 1;
-  border-radius: 12px;
+  border-radius: clamp(8px, 0.75vw, 12px);
   overflow: hidden;
 }
 
@@ -116,7 +118,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 4vw, 4rem);
   color: var(--text-gray);
 }
 
@@ -125,28 +127,28 @@
 }
 
 .name {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 3vmin, 3rem);
   font-weight: 700;
   color: var(--text-color);
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.75rem, 1vw, 1rem);
 }
 
 .role {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
   color: var(--text-gray);
-  margin-bottom: 2rem;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
   line-height: 1.6;
 }
 
 .social-links {
   display: flex;
-  gap: 1.5rem;
+  gap: clamp(1rem, 1.5vw, 1.5rem);
   justify-content: center;
 }
 
 .social-link {
-  width: 48px;
-  height: 48px;
+  width: clamp(40px, 3vw, 48px);
+  height: clamp(40px, 3vw, 48px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,17 +173,17 @@
 }
 
 .social-icon {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
 }
 
 .bio {
-  margin-top: 1.5rem;
+  margin-top: clamp(1rem, 1.5vw, 1.5rem);
   
   p {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.1vw, 1.1rem);
     color: var(--text-gray);
     line-height: 1.8;
-    max-width: 600px;
+    max-width: clamp(500px, 40vw, 600px);
     margin: 0 auto;
   }
 }
@@ -189,34 +191,34 @@
 .right-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 .right-card {
-  padding: 2rem;
+  padding: clamp(1rem, 2vw, 2rem);
   background-color: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: clamp(8px, 0.75vw, 12px);
   position: relative;
 }
 
 .right-card-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
   font-weight: 600;
   color: var(--text-color);
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.75rem, 1vw, 1rem);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
 }
 
 .right-card-text {
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 1vw, 1rem);
   color: var(--text-gray);
   line-height: 1.8;
 }
 
 .lightning-icon {
-  font-size: 6rem;
+  font-size: clamp(4rem, 6vw, 6rem);
   text-align: center;
   background: linear-gradient(135deg, #ff6b00, #9b59b6);
   -webkit-background-clip: text;
@@ -227,31 +229,31 @@
 .bottom-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 4rem;
+  gap: clamp(1rem, 2vw, 2rem);
+  margin-top: clamp(2rem, 4vw, 4rem);
 }
 
 .bottom-card {
-  padding: 2rem;
+  padding: clamp(1rem, 2vw, 2rem);
   background-color: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: clamp(8px, 0.75vw, 12px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: clamp(0.75rem, 1vw, 1rem);
   position: relative;
 }
 
 .bottom-card-text {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
   color: var(--text-color);
   font-weight: 600;
 }
 
 .rocket-icon {
-  font-size: 4rem;
+  font-size: clamp(3rem, 4vw, 4rem);
   background: linear-gradient(135deg, #ff6b00, #9b59b6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -259,23 +261,23 @@
 }
 
 .bottom-card-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
   font-weight: 600;
   color: var(--text-color);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
 }
 
 .bottom-card-subtitle {
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 1vw, 1rem);
   color: var(--text-gray);
 }
 
 .about-me-title {
   color: #fff; /* 字始终白色 */
   font-family: 'SmileySans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* slogan 字体 */
-  margin-bottom: 15px; /* 增加下边距 */
-  font-size: 1.5rem;
+  margin-bottom: clamp(0.75rem, 1vw, 0.9375rem); /* 增加下边距 */
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
   font-weight: 600;
 }
 
@@ -305,42 +307,68 @@
 .about-me-card-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: clamp(1rem, 1.5vw, 1.25rem);
+  height: 100%; /* 填满父容器高度 */
+  flex: 1; /* 允许容器扩展 */
 }
 
 .about-me-card {
-  border-radius: 30px;
+  border-radius: clamp(20px, 2vw, 30px);
   border: 1px solid rgba(255, 255, 255, 0.2); /* 默认边框 20% 白 */
-  padding: 30px 25px; /* 增大的内边距 */
+  padding: clamp(1.5rem, 2vw, 1.875rem) clamp(1.25rem, 1.5vw, 1.5625rem); /* 增大的内边距 */
   background-color: rgba(255, 255, 255, 0.02); /* 保持与其他卡片一致的背景 */
-  height: 100%; /* 卡片高度填充整个网格项 */
   color: rgba(255, 255, 255, 0.5); /* 默认字 50% 白 */
-  line-height: 24px; /* 行高24px */
-  font-size: 16px; /* 字号16px */
+  line-height: clamp(20px, 1.5vw, 24px); /* 行高24px */
+  font-size: clamp(14px, 1vw, 16px); /* 字号16px */
   opacity: 1; /* 移除之前的opacity设置 */
   transition: all 0.3s ease; /* 添加过渡效果 */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  min-height: 0; /* 允许卡片缩小 */
+  box-sizing: border-box; /* 确保 padding 包含在高度内 */
+  /* 移除 overflow: hidden，让内容完整显示 */
+  /* 移除 height: 100%，让内容撑高卡片 */
     
   &:hover {
     border-color: rgba(255, 255, 255, 0.6); /* hover 边框 60% 白 */
     color: #fff; /* hover 字 100% 白 */
   }
-    
-}
   
-.about-me-card.adjusted-padding {
-  padding-top: var(--adjusted-padding-top, 30px);
-  padding-bottom: var(--adjusted-padding-bottom, 30px);
-}
+  /* 最后一个卡片（除了写代码）自动填充剩余空间 */
+  &:last-child {
+    flex-grow: 1;
+    min-height: 0; /* 允许 flex 子项缩小 */
+  }
+  
+  /* 滚动容器中的卡片不受 last-child 样式影响 */
+  &.scroll-card {
+    flex-grow: 0 !important; /* 不允许滚动卡片填充空间 */
+    min-height: auto !important; /* 允许内容自然撑开 */
+  }
+  
+  /* 确保卡片内的文本内容能够正确换行 */
+  p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    margin: 0; /* 移除默认 margin */
+    flex-shrink: 0; /* 不允许段落缩小，让内容完整显示 */
+  }
+  
+  h1 {
+    flex-shrink: 0; /* 标题不缩小 */
+    margin: 0; /* 移除默认 margin */
+    margin-bottom: 15px; /* 标题下边距，为 content 区域提供上边距 */
+  }
+  }
 
 .about-me-swiper-card {
-  padding: 30px;
+  padding: clamp(1.5rem, 2vw, 1.875rem);
 }
 .about-me-profile-section {
   display: flex;
-  gap: 20px;
+  gap: clamp(1rem, 1.5vw, 1.25rem);
   align-items: center;
   
   .about-me-swiper-container {
@@ -349,7 +377,7 @@
     max-width: 100%; /* 防止溢出 */
     
     .about-me-swiper {
-      border-radius: 20px;
+      border-radius: clamp(15px, 1.5vw, 20px);
       border: 1px solid rgba(255, 255, 255, 0.2);
       background-color: rgba(255, 255, 255, 0.02);
       width: 100%;
@@ -361,7 +389,7 @@
         justify-content: center;
         width: 100%;
         height: 100%;
-        font-size: 18px;
+        font-size: clamp(16px, 1.2vw, 18px);
         color: #fff;
         background-color: rgba(255, 255, 255, 0.05);
       }
@@ -372,35 +400,35 @@
     flex: 1; /* 与 Swiper 容器各占一半宽度 */
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: clamp(0.75rem, 1vw, 0.9375rem);
   }
   
   .about-me-name {
-    font-size: 36px;
+    font-size: clamp(28px, 2.5vw, 36px);
     font-weight: bold;
     color: #fff;
     margin: 0;
   }
   
   .about-me-bio {
-    font-size: 14px;
+    font-size: clamp(12px, 1vw, 14px);
     color: rgba(255, 255, 255, 0.7);
-    margin-top: 20px;
+    margin-top: clamp(1rem, 1.5vw, 1.25rem);
   }
   
   .social-links {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    gap: 15px;
+    gap: clamp(0.75rem, 1vw, 0.9375rem);
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: clamp(1rem, 1.5vw, 1.25rem);
   }
   
   .social-link {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    font-size: 14px;
+    font-size: clamp(12px, 1vw, 14px);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -421,8 +449,8 @@
   }
   
   .social-icon {
-    width: 24px;
-    height: 24px;
+    width: clamp(20px, 1.5vw, 24px);
+    height: clamp(20px, 1.5vw, 24px);
     filter: invert(1); /* Makes all icons white */
   }
 }
@@ -469,27 +497,30 @@
 .about-me-grid-four-column {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: clamp(1rem, 1.5vw, 1.25rem);
   align-items: stretch;
 }
 
 .about-me-grid-item {
   width: 100%;
+  min-height: 0; /* 允许网格项缩小 */
+  min-width: 0; /* 防止内容溢出 */
+  overflow: hidden; /* 防止内容溢出网格项 */
 }
 
 .about-me-grid-four {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: clamp(1rem, 1.5vw, 1.25rem);
   width: 100%;
 }
 
 .about-me-left > .about-me-grid-one-quarter {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: clamp(1rem, 1.5vw, 1.25rem);
   width: 100%;
-  margin-top: 20px;
+  margin-top: clamp(1rem, 1.5vw, 1.25rem);
 }
 
 .about-me-grid-span-one {
@@ -507,10 +538,12 @@
 .about-me-card-group {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: clamp(1rem, 1.5vw, 1.25rem);
   width: 100%;
   align-self: stretch;
   min-width: 0; /* 防止内容溢出 */
+  min-height: 0; /* 允许容器缩小 */
+  overflow: hidden; /* 防止内容溢出 */
 }
 
 .scroll-container-wrapper {
@@ -524,7 +557,7 @@
     overflow-y: scroll; /* 使用 scroll 确保滚动行为正确 */
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: clamp(1rem, 1.5vw, 1.25rem);
     padding-right: 0;
     
     /* 隐藏滚动条 */
@@ -541,13 +574,17 @@
 
 .scroll-card {
   /* 滚动容器中的卡片样式 */
+  /* 确保卡片内容可以自然撑开高度，不限制高度 */
+  height: auto !important;
+  min-height: auto !important;
+  flex-shrink: 0; /* 不允许卡片被压缩 */
 }
 
 .scroll-mask {
   position: absolute;
   left: 0;
   right: 0;
-  height: 100px;
+  height: clamp(60px, 7vw, 100px);
   pointer-events: none;
   z-index: 10;
   opacity: 0;

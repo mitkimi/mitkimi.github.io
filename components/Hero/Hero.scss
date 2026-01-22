@@ -33,25 +33,25 @@
 .hero-content {
   text-align: center;
   z-index: 1;
-  padding: 0 calc(var(--spacing-unit) * 2);
+  padding: 0 clamp(1rem, 2vw, 2rem);
   position: relative;
 }
 
 .hero-title {
-  font-size: clamp(3rem, 12vw, 10rem);
+  font-size: clamp(3rem, 8vmin, 10rem);
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: calc(var(--spacing-unit) * 2);
+  letter-spacing: clamp(0.1em, 0.15vw, 0.15em);
+  margin-bottom: clamp(1rem, 2vw, 2rem);
   color: var(--text-color);
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-size: clamp(1rem, 1.8vmin, 1.5rem);
   font-weight: 400;
   line-height: 1.6;
   color: var(--text-gray);
-  max-width: 800px;
+  max-width: clamp(600px, 50vw, 800px);
   margin: 0 auto;
 }

@@ -1,26 +1,26 @@
 .case-studies {
   width: 100%;
   min-height: 100vh;
-  padding: 8rem 2rem;
+  padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 2vw, 2rem);
   background-color: #000;
 }
 
 .case-studies-container {
   width: 100%;
-  max-width: 1600px;
+  max-width: clamp(1200px, 90vw, 1600px);
   margin: 0 auto;
 }
 
 .case-studies-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
+  gap: clamp(2rem, 4vw, 4rem);
   align-items: start;
 }
 
 .video-container {
   position: sticky;
-  top: 8rem;
+  top: clamp(4rem, 8vw, 8rem);
   opacity: 1;
   transition: opacity 0.5s ease;
 }
@@ -28,7 +28,7 @@
 .browser-window {
   background-color: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: clamp(8px, 0.75vw, 12px);
   overflow: hidden;
 }
 
@@ -85,18 +85,18 @@
 
 .browser-content {
   display: flex;
-  height: 600px;
+  height: clamp(400px, 40vw, 600px);
   background-color: rgba(255, 255, 255, 0.02);
 }
 
 .sidebar {
-  width: 200px;
-  padding: 1rem;
+  width: clamp(150px, 12vw, 200px);
+  padding: clamp(0.75rem, 1vw, 1rem);
   background-color: rgba(255, 255, 255, 0.05);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: clamp(0.75rem, 1vw, 1rem);
 }
 
 .sidebar-header {
@@ -268,41 +268,41 @@
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4vmin, 4rem);
   font-weight: 700;
   color: var(--text-color);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
+  letter-spacing: clamp(0.05em, 0.1vw, 0.1em);
+  margin-bottom: clamp(0.25rem, 0.5vw, 0.5rem);
 }
 
 .subtitle {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 2.5vmin, 2.5rem);
   font-weight: 600;
   color: var(--text-color);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 3rem;
+  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
 }
 
 .section {
-  margin-bottom: 2rem;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
 }
 
 .section-title {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
   font-weight: 600;
   color: var(--text-color);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 1rem;
+  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
+  margin-bottom: clamp(0.75rem, 1vw, 1rem);
 }
 
 .section-text {
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 1vw, 1rem);
   color: var(--text-gray);
   line-height: 1.8;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.75rem, 1vw, 1rem);
 }
 
 .list {
@@ -330,8 +330,8 @@
 .technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  margin: 3rem 0;
+  gap: clamp(1rem, 2vw, 2rem);
+  margin: clamp(1.5rem, 3vw, 3rem) 0;
 }
 
 .tech-logo {
@@ -342,37 +342,37 @@
 }
 
 .tech-icon {
-  width: 48px;
-  height: 48px;
+  width: clamp(40px, 3vw, 48px);
+  height: clamp(40px, 3vw, 48px);
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
   color: var(--text-color);
 }
 
 .tech-name {
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.875vw, 0.875rem);
   color: var(--text-color);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
 }
 
 .github-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
+  gap: clamp(0.5rem, 0.75vw, 0.75rem);
+  padding: clamp(0.75rem, 1vw, 1rem) clamp(1.5rem, 2vw, 2rem);
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  border-radius: clamp(6px, 0.5vw, 8px);
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
   transition: all 0.3s ease;
 
   &:hover {
@@ -382,5 +382,5 @@
 }
 
 .github-icon {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
 }

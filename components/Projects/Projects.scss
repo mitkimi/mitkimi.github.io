@@ -25,8 +25,8 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: calc(var(--spacing-unit) * 4);
+  grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 22vw, 350px), 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
   width: 100%;
 }
 
@@ -69,25 +69,25 @@
 }
 
 .tag {
-  font-size: 0.75rem;
+  font-size: clamp(0.625rem, 0.75vw, 0.75rem);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: calc(var(--spacing-unit) * 0.5) calc(var(--spacing-unit) * 1);
+  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
+  padding: clamp(0.25rem, 0.5vw, 0.5rem) clamp(0.5rem, 1vw, 1rem);
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  border-radius: clamp(3px, 0.25vw, 4px);
   color: var(--text-gray);
 }
 
 .project-link {
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.875vw, 0.875rem);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
   color: var(--text-color);
-  margin-top: calc(var(--spacing-unit) * 2);
+  margin-top: clamp(1rem, 2vw, 2rem);
   transition: color 0.3s ease;
   
   &:hover {

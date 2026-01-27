@@ -3,6 +3,9 @@
   min-height: 100vh;
   padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 2vw, 2rem);
   background-color: #000;
+  display: flex;
+  align-items: center; /* 内容纵向居中 */
+  box-sizing: border-box;
   
   /* 确保在 pin 时正确显示 */
   &.pinned {
@@ -37,6 +40,7 @@
   width: 100%;
   max-width: clamp(1200px, 90vw, 1600px);
   margin: 0 auto;
+  flex-shrink: 0; /* 防止容器被压缩 */
 }
 
 .about-me-grid {

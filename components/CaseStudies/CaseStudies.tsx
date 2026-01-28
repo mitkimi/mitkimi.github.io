@@ -92,11 +92,12 @@ const CaseStudies = () => {
       const projectContent = contents[index];
       if (!projectContent) return;
 
+      // 使用项目内容作为触发器，让每个项目在视口中心停留足够的时间
       const trigger = ScrollTrigger.create({
         trigger: projectContent,
-        start: 'top center',
-        end: 'bottom center',
-        scrub: true,
+        start: 'top 60%', // 当内容顶部到达视口60%位置时触发
+        end: 'bottom 40%', // 当内容底部到达视口40%位置时结束
+        scrub: false, // 不使用scrub，让切换更精确
         onEnter: () => {
           setActiveIndex(index);
           // 切换视频
@@ -122,6 +123,32 @@ const CaseStudies = () => {
             }
           });
         },
+        onLeave: () => {
+          // 离开当前项目区域时，切换到下一个项目（如果存在）
+          if (index < projects.length - 1) {
+            setActiveIndex(index + 1);
+            videos.forEach((video, i) => {
+              if (video) {
+                gsap.to(video, {
+                  opacity: i === index + 1 ? 1 : 0,
+                  scale: i === index + 1 ? 1 : 0.9,
+                  duration: 0.6,
+                  ease: 'power2.out',
+                });
+              }
+            });
+            contents.forEach((content, i) => {
+              if (content) {
+                gsap.to(content, {
+                  opacity: i === index + 1 ? 1 : 0,
+                  y: i === index + 1 ? 0 : 50,
+                  duration: 0.6,
+                  ease: 'power2.out',
+                });
+              }
+            });
+          }
+        },
         onEnterBack: () => {
           setActiveIndex(index);
           videos.forEach((video, i) => {
@@ -144,6 +171,32 @@ const CaseStudies = () => {
               });
             }
           });
+        },
+        onLeaveBack: () => {
+          // 向上滚动离开当前项目时，切换到上一个项目（如果存在）
+          if (index > 0) {
+            setActiveIndex(index - 1);
+            videos.forEach((video, i) => {
+              if (video) {
+                gsap.to(video, {
+                  opacity: i === index - 1 ? 1 : 0,
+                  scale: i === index - 1 ? 1 : 0.9,
+                  duration: 0.6,
+                  ease: 'power2.out',
+                });
+              }
+            });
+            contents.forEach((content, i) => {
+              if (content) {
+                gsap.to(content, {
+                  opacity: i === index - 1 ? 1 : 0,
+                  y: i === index - 1 ? 0 : 50,
+                  duration: 0.6,
+                  ease: 'power2.out',
+                });
+              }
+            });
+          }
         },
       });
 

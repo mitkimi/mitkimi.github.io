@@ -35,7 +35,7 @@ export default function AboutMe() {
     }
   }, []);
   
-  // 模拟8张卡片的数据
+  // 专业能力卡片
   const cardsData = [
     { id: 1, title: "React 开发专家", content: "熟练掌握 React 生态系统，构建高性能前端应用。" },
     { id: 2, title: "Node.js 全栈", content: "具备完整的 Node.js 后端开发能力。" },
@@ -44,7 +44,6 @@ export default function AboutMe() {
     { id: 5, title: "性能优化专家", content: "擅长前端性能分析与优化实践。" },
     { id: 6, title: "CI/CD 实践", content: "构建自动化部署流水线。" },
     { id: 7, title: "DevOps 工程师", content: "具备云服务运维经验。" },
-    { id: 8, title: "开源贡献者", content: "积极参与多个开源项目。" },
   ];
   
   // 使用 GSAP 控制滚动容器滚动，实现固定视口效果
@@ -55,6 +54,13 @@ export default function AboutMe() {
       // 销毁现有的 ScrollTrigger
       if (scrollTrigger) {
         scrollTrigger.kill();
+      }
+
+      if (window.matchMedia('(max-width: 900px)').matches) {
+        if (scrollContainerRef.current) scrollContainerRef.current.scrollTop = 0;
+        setScrollTop(0);
+        ScrollTrigger.refresh();
+        return;
       }
       
       const sectionElement = document.getElementById('about');
@@ -110,6 +116,10 @@ export default function AboutMe() {
   useEffect(() => {
     const setScrollContainerHeight = () => {
       if (leftRef.current && scrollContainerRef.current) {
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          scrollContainerRef.current.style.height = '';
+          return;
+        }
         const swiperCard = leftRef.current.querySelector('.about-me-swiper-card');
         if (swiperCard) {
           const swiperHeight = swiperCard.getBoundingClientRect().height;
@@ -135,6 +145,11 @@ export default function AboutMe() {
   useEffect(() => {
     const adjustHeights = () => {
       if (leftRef.current && rightRef.current) {
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          leftRef.current.style.height = '';
+          rightRef.current.style.height = '';
+          return;
+        }
         // 获取左侧高度（第一行卡片网格高度 + swiper容器高度）
         const leftTopGrid = leftRef.current.querySelector('.about-me-grid-four-column');
         const swiperCard = leftRef.current.querySelector('.about-me-swiper-card');
@@ -280,12 +295,6 @@ export default function AboutMe() {
                       </a>
                       <a href="https://mitkimi.com" target="_blank" className="social-link">
                         <img src="/assets/mitkimi.svg" alt="Send" className="social-icon" />
-                      </a>
-                      <a href="https://www.xiaohongshu.com/user/profile/5f93f224000000000101f415" target="_blank" className="social-link">
-                        <img src="/assets/redbook.svg" alt="RedBook" className="social-icon" />
-                      </a>
-                      <a href="https://www.douyin.com/user/MS4wLjABAAAABsgLtxWm5TObmVTb_0hupDEUpZkwOnoRADJr7C7KWFo" target="_blank" className="social-link">
-                        <img src="/assets/tiktok.svg" alt="TikTok" className="social-icon" />
                       </a>
                       <a href="https://www.youtube.com/@mitkimi" target="_blank" className="social-link">
                         <img src="/assets/youtube.svg" alt="Organ" className="social-icon" />

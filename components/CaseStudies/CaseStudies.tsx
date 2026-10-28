@@ -38,42 +38,41 @@ const projects: Project[] = [
     id: 1,
     media: [
       {
-        type: 'video',
-        src: 'https://offontime-prod.oss-cn-beijing.aliyuncs.com/cms/2025/10/31/1eca51d9-3864-4a51-95be-50795d301d6d.mp4',
+        type: 'image',
+        src: '/assets/case-studies/apron-design/getting-started.png',
+        alt: 'Apron Design 设计理念与组件概览',
       },
       {
         type: 'image',
-        src: '/assets/kimi_01.JPG',
-        alt: '项目一截图 1',
+        src: '/assets/case-studies/apron-design/self-introduction.png',
+        alt: 'Apron Design 设计系统介绍',
       },
       {
         type: 'image',
-        src: '/assets/kimi_02.JPG',
-        alt: '项目一截图 2',
+        src: '/assets/case-studies/apron-design/updating-routing.png',
+        alt: 'Apron Design 组件更新路线',
       },
     ],
-    title: '项目一',
+    title: 'Apron Design',
     description:
-      '这是第一个项目的详细介绍。展示了创新的设计理念和先进的技术实现。整个项目会固定在视口中心，右侧卡片内容由页面滚动驱动。',
-    technologies: ['Next.js', 'Three.js', 'TypeScript'],
+      '一套面向 C 端产品的完全开源设计系统，将设计规范、跨平台组件与工程实践整合为一致的产品开发方案。',
+    technologies: ['React', 'Vue 3', 'TypeScript', '微信小程序', 'Figma'],
     details: {
       problem: [
-        '品牌缺乏设计方向和目标定位',
-        '决策缺乏市场调研支持',
-        '设计迭代周期过长，协作成本高',
-        '跨端体验不一致，难以统一视觉语言',
+        'C 端产品缺少兼顾体验与工程效率的统一组件方案',
+        'React、Vue 与微信小程序之间难以保持一致的设计语言',
+        '设计规范与开发实现分离，增加协作和维护成本',
       ],
       solution: [
-        '人工智能根据品牌分析生成设计方案',
-        '具备高级编辑功能的3D可视化',
-        'LLM 支持的市场调研整合',
-        '组件化设计系统保证多端一致性',
+        '以一致、平和、意识、开放、必要为核心设计原则',
+        '提供 React 16+、Vue 3 与原生微信小程序组件库',
+        '通过 Figma 资源统一颜色、文字、图标和布局规范',
+        '支持 Next.js 与 Nuxt.js 服务端渲染场景',
       ],
       impact: [
-        '获得美国专利号 US10324916B2',
-        'AI Forge 加速器认证',
-        '设计交付效率提升 50%',
-        '多端还原误差降低 70%',
+        '40+ 组件覆盖大部分 C 端产品场景',
+        '组件库总下载量超过 3 万次',
+        '以 MIT 协议开放设计与工程资源',
       ],
     },
   },
@@ -82,41 +81,35 @@ const projects: Project[] = [
     media: [
       {
         type: 'video',
-        src: 'https://offontime-prod.oss-cn-beijing.aliyuncs.com/cms/2025/11/01/e53a6aec-7354-4d8f-995b-367e88660bbb.m4v',
+        src: '/assets/case-studies/vision-tempus/demo.mov',
       },
       {
         type: 'image',
-        src: '/assets/kimi_03.JPG',
-        alt: '项目二截图 1',
-      },
-      {
-        type: 'image',
-        src: '/assets/kimi_04.JPG',
-        alt: '项目二截图 2',
+        src: '/assets/case-studies/vision-tempus/hero.jpg',
+        alt: '视界时光官网产品首屏',
       },
     ],
-    title: '项目二',
+    title: '视界时光',
     description:
-      '这是第二个项目的详细介绍。项目一结束后整体滚走，本项目跟进同样 pin 在视口中心，页面滚动控制右侧内容。',
-    technologies: ['React', 'Node.js', 'MongoDB'],
+      '一款为 Android TV 横屏场景设计的沉浸式屏保应用，将时间、日期、实时天气、动态背景与环境音乐融入客厅大屏。',
+    technologies: ['Android TV', 'Kotlin', 'DreamService', 'WebView'],
     details: {
       problem: [
-        '用户体验不够流畅',
-        '性能需要优化',
-        '首屏加载过慢影响留存',
-        '接口与前端协作链路冗长',
+        '电视闲置时缺少兼具信息价值与空间氛围的展示方式',
+        '传统静态屏保容易在 OLED 屏幕上留下固定区域',
+        '大屏信息层级和遥控器操作需要针对客厅距离重新设计',
       ],
       solution: [
-        '采用最新的前端框架',
-        '优化数据库查询',
-        '资源懒加载与路由按需拆包',
-        '接口缓存与边缘加速',
+        '以大号时间、日期和天气建立清晰的大屏信息层级',
+        '提供五套循环动态背景与环境音乐主题',
+        '前景信息定时移动位置，降低 OLED 烧屏风险',
+        '通过 DreamService 一键设为系统屏保，并支持独立运行',
       ],
       impact: [
-        '用户满意度提升 40%',
-        '页面加载速度提升 60%',
-        '跳出率下降 25%',
-        '核心接口延迟降低 45%',
+        '覆盖 Android TV、电视盒子及部分投影设备',
+        '支持 API 23+ 与常见系统 WebView 兼容方案',
+        '主题包支持远程下载与在线更新',
+        '中英文界面与遥控器交互适配大屏使用场景',
       ],
     },
   },
@@ -396,7 +389,6 @@ const CaseStudies = () => {
                         ref={(el) => {
                           cardRefs.current[index] = el;
                         }}
-                        onWheel={(e) => e.preventDefault()}
                       >
                         <div className="case-studies-card-body">
                           <p className="case-studies-description">

@@ -40,3 +40,16 @@
   max-width: clamp(600px, 50vw, 800px);
   margin: 0 auto;
 }
+
+@media (max-width: 600px) {
+  .hero { height: 100svh; min-height: 34rem; }
+  .hero-content { width: 100%; padding: 0 1.25rem; }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 13vw, 4rem);
+    line-height: 1.16;
+    letter-spacing: 0;
+  }
+
+  .hero-subtitle { max-width: 18rem; font-size: 0.9rem; line-height: 1.7; }
+}

@@ -344,3 +344,15 @@
     display: none;
   }
 }
+
+@media (max-width: 600px) {
+  .case-studies-block { padding: 3.5rem 1rem; }
+  .case-studies-stage { gap: 1.25rem; }
+
+  .case-studies-media,
+  .case-studies-card { border-radius: 12px; }
+
+  .case-studies-card-header { padding: 1.15rem 1.2rem 0.9rem; }
+  .case-studies-card-body { padding: 1rem 1.2rem 1.25rem; }
+  .case-studies-media-dot { min-width: 8px; min-height: 8px; }
+}

@@ -23,6 +23,7 @@
     "react-bits": "^1.0.5",
     "react-dom": "19.2.3",
     "sass": "^1.97.1",
+    "simple-icons": "^16.36.0",
     "swiper": "^12.0.3"
   },
   "devDependencies": {

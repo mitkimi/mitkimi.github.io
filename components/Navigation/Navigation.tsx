@@ -10,8 +10,6 @@ const navItems = [
   { id: 'about', label: '关于我' },
   { id: 'case-studies', label: '案例' },
   { id: 'skills', label: '技能' },
-  { id: 'work-experience', label: '工作经历' },
-  { id: 'education', label: '教育经历' },
   { id: 'contact', label: '联系' },
 ];
 

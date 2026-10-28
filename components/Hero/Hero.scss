@@ -9,30 +9,15 @@
   background-color: #000;
 }
 
-.background {
+.hero-gradient-ascii {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 0;
-  opacity: 1;
-}
-
-.backdrop-blur-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  backdrop-filter: blur(5px);
-  pointer-events: none;
 }
 
 .hero-content {
   text-align: center;
-  z-index: 1;
+  z-index: 2;
   padding: 0 clamp(1rem, 2vw, 2rem);
   position: relative;
 }

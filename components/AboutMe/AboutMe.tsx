@@ -272,7 +272,7 @@ export default function AboutMe() {
                       <p>曾经的职业魔术师，一个管风琴票友</p>
                     </div>
                     <div className="about-me-contact">
-                      <p>Email: mitkimi@gmail.com</p>
+                      <p>Email: mitkimicn@gmail.com</p>
                       </div>
                     <div className="social-links">
                       <a href="https://github.com/mitkimi" target="_blank" className="social-link">

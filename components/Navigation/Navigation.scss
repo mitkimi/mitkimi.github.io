@@ -84,3 +84,20 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .navigation { top: 0.65rem; padding: 0 0.65rem; }
+  .glass { width: 100%; max-width: 25rem; }
+  .nav-content { width: 100%; gap: 0; }
+
+  .nav-item {
+    min-width: 0;
+    flex: 1;
+    padding: 0.65rem 0.25rem;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .nav-item { font-size: 0.68rem; padding-inline: 0.1rem; }
+}

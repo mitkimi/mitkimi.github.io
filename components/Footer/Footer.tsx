@@ -20,12 +20,6 @@ export default function Footer() {
             <a href="https://mitkimi.com" target="_blank" rel="noopener noreferrer" className="link">
               <img src="/assets/mitkimi.svg" alt="Website" className="link-icon" />
             </a>
-            <a href="https://www.xiaohongshu.com/user/profile/5f93f224000000000101f415" target="_blank" rel="noopener noreferrer" className="link">
-              <img src="/assets/redbook.svg" alt="RedBook" className="link-icon" />
-            </a>
-            <a href="https://www.douyin.com/user/MS4wLjABAAAABsgLtxWm5TObmVTb_0hupDEUpZkwOnoRADJr7C7KWFo" target="_blank" rel="noopener noreferrer" className="link">
-              <img src="/assets/tiktok.svg" alt="TikTok" className="link-icon" />
-            </a>
             <a href="https://www.youtube.com/@mitkimi" target="_blank" rel="noopener noreferrer" className="link">
               <img src="/assets/youtube.svg" alt="YouTube" className="link-icon" />
             </a>

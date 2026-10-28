@@ -608,3 +608,71 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 900px) {
+  .about-me {
+    min-height: auto;
+    padding: 5rem 1rem;
+    align-items: flex-start;
+  }
+
+  .about-me-content { flex-direction: column; gap: 1rem; }
+
+  .about-me-left,
+  .about-me-right {
+    width: 100%;
+    height: auto !important;
+    flex: none;
+  }
+
+  .about-me-grid-four-column { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .about-me-left > .about-me-grid-one-quarter { grid-template-columns: 1fr; }
+
+  .about-me-grid-span-one,
+  .about-me-grid-span-three {
+    grid-column: auto;
+    height: auto;
+  }
+
+  .scroll-container-wrapper {
+    height: auto;
+    overflow: visible;
+
+    .scroll-container {
+      height: auto !important;
+      overflow: visible;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .scroll-mask { display: none; }
+  .about-me-card-container { height: auto; }
+  .about-me-card:last-child { flex-grow: 0; }
+}
+
+@media (max-width: 600px) {
+  .about-me { padding: 4.5rem 1rem; }
+
+  .about-me-grid-four-column,
+  .scroll-container-wrapper .scroll-container { grid-template-columns: 1fr; }
+
+  .about-me-card,
+  .about-me-swiper-card {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .about-me-card-group { overflow: visible; }
+
+  .about-me-profile-section {
+    flex-direction: column;
+    align-items: stretch;
+
+    .about-me-swiper-container { width: 100%; flex: none; }
+    .about-me-info { padding-top: 0.25rem; }
+    .about-me-name { font-size: 1.75rem; }
+    .social-icon { width: 24px; height: 24px; }
+  }
+}

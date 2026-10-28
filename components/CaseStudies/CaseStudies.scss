@@ -1,386 +1,358 @@
 .case-studies {
   width: 100%;
-  min-height: 100vh;
-  padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 2vw, 2rem);
   background-color: #000;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.case-studies-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+// 每个项目独立一整屏块，各自 pin / 滚走
+.case-studies-block {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center; // pin 时内容居中
+  box-sizing: border-box;
+  padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 2vw, 2rem);
 }
 
 .case-studies-container {
   width: 100%;
   max-width: clamp(1200px, 90vw, 1600px);
   margin: 0 auto;
+  flex-shrink: 0;
 }
 
-.case-studies-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: start;
-}
-
-.video-container {
-  position: sticky;
-  top: clamp(4rem, 8vw, 8rem);
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-.browser-window {
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: clamp(8px, 0.75vw, 12px);
-  overflow: hidden;
-}
-
-.browser-bar {
+.case-studies-stage {
   display: flex;
-  align-items: center;
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  width: 100%;
+  align-items: flex-start;
+}
+
+// 左侧视频更宽，右侧介绍更窄
+.case-studies-left {
+  flex: 2.2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-  padding: 0.75rem 1rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.browser-controls {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.control {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.5rem;
-  color: var(--text-color);
-}
-
-.address-bar {
+.case-studies-right {
   flex: 1;
-  padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  font-size: 0.75rem;
-  color: var(--text-gray);
-  font-family: monospace;
+  min-width: 0;
+  max-width: 420px;
+  align-self: flex-start;
 }
 
-.browser-actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.action {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-color);
-  font-size: 0.875rem;
-}
-
-.browser-content {
-  display: flex;
-  height: clamp(400px, 40vw, 600px);
-  background-color: rgba(255, 255, 255, 0.02);
-}
-
-.sidebar {
-  width: clamp(150px, 12vw, 200px);
-  padding: clamp(0.75rem, 1vw, 1rem);
-  background-color: rgba(255, 255, 255, 0.05);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: clamp(0.75rem, 1vw, 1rem);
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.progress {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.progress-bar {
-  height: 4px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
+// 16:9 媒体区（视频 / 图片 Swiper）
+.case-studies-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: clamp(16px, 1.5vw, 24px);
   overflow: hidden;
-  
-  &::after {
-    content: '';
-    display: block;
-    width: 33%;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.case-studies-swiper {
+  width: 100%;
+  height: 100%;
+
+  .swiper-wrapper,
+  .swiper-slide {
     height: 100%;
-    background-color: var(--text-color);
   }
 }
 
-.sidebar-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.875rem;
-  color: var(--text-gray);
-}
-
-.sidebar-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  color: var(--text-color);
-}
-
-.tag {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
-  font-size: 0.75rem;
-  color: var(--text-gray);
-}
-
-.loading {
-  font-size: 0.75rem;
-  color: var(--text-gray);
-  font-style: italic;
-}
-
-.submit-button {
-  margin-top: auto;
-  padding: 0.75rem;
-  background-color: var(--text-color);
-  color: #000;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.canvas {
-  flex: 1;
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.01);
-  padding: 2rem;
-}
-
-.color-picker {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  width: 200px;
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-}
-
-.color-title {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 1rem;
-}
-
-.color-gradient {
+.case-studies-slide {
   width: 100%;
-  height: 150px;
-  background: linear-gradient(to bottom, #ff0000, #000000);
-  border-radius: 4px;
-  margin-bottom: 1rem;
+  height: 100%;
+  background: #0a0a0a;
 }
 
-.color-sliders {
+.case-studies-media-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+// Swiper indicator：表示当前项目内的媒体（图/视频），非项目序号
+.case-studies-media-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0.25rem;
+  min-height: 10px;
+}
+
+.case-studies-media-dot {
+  appearance: none;
+  border: none;
+  padding: 0;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  opacity: 1;
+  margin: 0;
+  cursor: pointer;
+  transition:
+    width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.35s ease;
+  flex-shrink: 0;
+
+  &.is-active {
+    width: 22px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  &:focus-visible {
+    outline: 1px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+  }
+}
+
+// 右侧卡片：高度 = 对应视频高度
+.case-studies-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  width: 100%;
+  height: var(--case-card-height, 240px);
+  border-radius: clamp(16px, 1.5vw, 24px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background-color: rgba(12, 12, 12, 0.98);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  font-size: clamp(14px, 1vw, 16px);
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.rainbow-slider {
-  height: 20px;
-  background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
-  border-radius: 10px;
+// 序号 + 标题：固定在卡片顶部（不在滚动层内）
+.case-studies-card-header {
+  position: relative;
+  z-index: 5;
+  flex-shrink: 0;
+  padding: clamp(1.25rem, 1.75vw, 1.75rem) clamp(1.5rem, 2vw, 2rem) clamp(0.85rem, 1.1vw, 1rem);
+  background-color: rgba(12, 12, 12, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  // 底边轻阴影，正文从下层滚上时被压住
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -14px;
+    height: 14px;
+    background: linear-gradient(
+      to bottom,
+      rgba(12, 12, 12, 0.95) 0%,
+      rgba(12, 12, 12, 0) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
 }
 
-.bw-slider {
-  height: 20px;
-  background: linear-gradient(to right, #000000, #ffffff);
-  border-radius: 10px;
+// 仅正文区域滚动，顶栏始终固定
+.case-studies-card-scroll {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overscroll-behavior: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
 }
 
-.color-value {
-  font-size: 0.75rem;
-  color: var(--text-gray);
-  font-family: monospace;
-}
-
-.assets {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
+.case-studies-card-body {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1rem, 1.25vw, 1.25rem) clamp(1.5rem, 2vw, 2rem) clamp(1.5rem, 2vw, 2rem);
+  box-sizing: border-box;
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  color: var(--text-color);
+  flex-direction: column;
 }
 
-.canvas-text {
+// 底部遮罩：提示内容未读完（压在滚动区域之上）
+.case-studies-card-mask {
   position: absolute;
-  bottom: 4rem;
-  left: 2rem;
-  font-size: 1rem;
-  color: var(--text-gray);
+  left: 0;
+  right: 0;
+  height: 48px;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+
+  &.is-visible {
+    opacity: 1;
+  }
+
+  &--bottom {
+    bottom: 0;
+    background: linear-gradient(
+      to top,
+      rgba(12, 12, 12, 0.95) 0%,
+      rgba(12, 12, 12, 0) 100%
+    );
+    border-radius: 0 0 clamp(16px, 1.5vw, 24px) clamp(16px, 1.5vw, 24px);
+  }
 }
 
-.export-button {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--text-color);
-  color: #000;
-  border: none;
-  border-radius: 6px;
+.case-studies-index {
+  font-family: 'Inter', monospace, sans-serif;
+  font-size: clamp(12px, 0.85vw, 13px);
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: clamp(0.5rem, 0.75vw, 0.65rem);
+}
+
+.case-studies-title {
+  color: #fff;
+  font-family: 'SmileySans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin: 0;
+  font-size: clamp(1.35rem, 1.8vw, 1.75rem);
   font-weight: 600;
-  cursor: pointer;
+  line-height: 1.3;
 }
 
-.content {
-  opacity: 1;
-  transition: opacity 0.5s ease;
+.case-studies-description {
+  margin: 0 0 clamp(1.25rem, 1.5vw, 1.5rem) 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.75;
 }
 
-.title {
-  font-size: clamp(2rem, 4vmin, 4rem);
-  font-weight: 700;
-  color: var(--text-color);
-  text-transform: uppercase;
-  letter-spacing: clamp(0.05em, 0.1vw, 0.1em);
-  margin-bottom: clamp(0.25rem, 0.5vw, 0.5rem);
+.case-studies-detail-section {
+  margin-bottom: clamp(1rem, 1.25vw, 1.25rem);
+
+  &:last-of-type {
+    margin-bottom: clamp(1.25rem, 1.5vw, 1.5rem);
+  }
 }
 
-.subtitle {
-  font-size: clamp(1.5rem, 2.5vmin, 2.5rem);
+.case-studies-detail-title {
+  color: rgba(255, 255, 255, 0.95);
+  font-family: 'SmileySans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.9rem, 1vw, 1rem);
   font-weight: 600;
-  color: var(--text-color);
-  text-transform: uppercase;
-  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
-  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+  margin: 0 0 clamp(0.5rem, 0.75vw, 0.65rem) 0;
 }
 
-.section {
-  margin-bottom: clamp(1rem, 2vw, 2rem);
-}
-
-.section-title {
-  font-size: clamp(1rem, 1.25vw, 1.25rem);
-  font-weight: 600;
-  color: var(--text-color);
-  text-transform: uppercase;
-  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
-  margin-bottom: clamp(0.75rem, 1vw, 1rem);
-}
-
-.section-text {
-  font-size: clamp(0.875rem, 1vw, 1rem);
-  color: var(--text-gray);
-  line-height: 1.8;
-  margin-bottom: clamp(0.75rem, 1vw, 1rem);
-}
-
-.list {
+.case-studies-detail-list {
   list-style: none;
   padding: 0;
   margin: 0;
-}
 
-.list li {
-  font-size: 1rem;
-  color: var(--text-gray);
-  line-height: 1.8;
-  margin-bottom: 0.5rem;
-  padding-left: 1.5rem;
-  position: relative;
+  li {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: clamp(13px, 0.95vw, 15px);
+    line-height: 1.7;
+    margin-bottom: 0.4rem;
+    padding-left: 1rem;
+    position: relative;
 
-  &::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--text-color);
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
-.technologies {
+.case-studies-technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(1rem, 2vw, 2rem);
-  margin: clamp(1.5rem, 3vw, 3rem) 0;
-}
-
-.tech-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding-bottom: 0.25rem;
 }
 
-.tech-icon {
-  width: clamp(40px, 3vw, 48px);
-  height: clamp(40px, 3vw, 48px);
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
-  color: var(--text-color);
-}
-
-.tech-name {
-  font-size: clamp(0.75rem, 0.875vw, 0.875rem);
-  color: var(--text-color);
-  text-transform: uppercase;
-  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
-}
-
-.github-link {
-  display: inline-flex;
-  align-items: center;
-  gap: clamp(0.5rem, 0.75vw, 0.75rem);
-  padding: clamp(0.75rem, 1vw, 1rem) clamp(1.5rem, 2vw, 2rem);
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: clamp(6px, 0.5vw, 8px);
-  color: var(--text-color);
-  text-decoration: none;
+.case-studies-tech-tag {
+  padding: 0.3rem 0.65rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(11px, 0.8vw, 12px);
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: clamp(0.03em, 0.05vw, 0.05em);
-  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
 
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+// 窄屏：不 pin，上下展开
+@media (max-width: 900px) {
+  .case-studies-block {
+    min-height: auto;
+    align-items: flex-start;
+    padding: clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 1.5rem);
+  }
+
+  .case-studies-stage {
+    flex-direction: column;
+  }
+
+  .case-studies-left,
+  .case-studies-right {
+    flex: none;
+    width: 100%;
+    max-width: none;
+  }
+
+  .case-studies-card {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .case-studies-card-scroll {
+    overflow: visible;
+    flex: none;
+    min-height: auto;
+  }
+
+  .case-studies-card-mask {
+    display: none;
   }
 }
 
-.github-icon {
-  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+@media (max-width: 600px) {
+  .case-studies-block { padding: 3.5rem 1rem; }
+  .case-studies-stage { gap: 1.25rem; }
+
+  .case-studies-media,
+  .case-studies-card { border-radius: 12px; }
+
+  .case-studies-card-header { padding: 1.15rem 1.2rem 0.9rem; }
+  .case-studies-card-body { padding: 1rem 1.2rem 1.25rem; }
+  .case-studies-media-dot { min-width: 8px; min-height: 8px; }
 }

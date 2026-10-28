@@ -101,9 +101,9 @@ export const siteConfig = {
 
   // 联系方式
   contact: {
-    email: 'your-email@example.com',
-    github: 'yourusername',
-    linkedin: 'yourprofile'
+    email: 'mitkimicn@gmail.com',
+    github: 'https://github.com/mitkimi',
+    website: 'https://mitkimi.com'
   },
 
   // 社交链接
